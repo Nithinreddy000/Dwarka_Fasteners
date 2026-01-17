@@ -25,17 +25,19 @@ export function Footer() {
     <footer className="bg-accent-600 text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8 lg:gap-12">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="relative w-14 h-14 bg-white rounded-full p-2">
-              <Image
-                src="/logo.png"
-                alt="Dwarka Fasteners"
-                fill
-                className="object-contain p-1"
-              />
-            </div>
+          <div className="flex-shrink-0">
+            {/* Outer Circle - Adjust width/height here for the border size */}
+              <div className="relative" style={{ width: '3rem', height: '3rem' }}>
+                <Image
+                  src="/footer-logo.jpeg"
+                  alt="Dwarka Fasteners"
+                  fill
+                  className="object-cover"
+                  quality={100}
+                />
+              </div>
           </div>
 
           {/* Navigation */}

@@ -18,15 +18,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b-4 border-primary-600 shadow-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-28">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-20 h-20">
+          <Link href="/" className="flex items-center gap-3 py-2">
+            <div className="relative" style={{ width: '12rem', height: '20rem' ,marginLeft: '-3rem' }}>
               <Image
                 src="/logo.png"
                 alt="Dwarka Fasteners"
                 fill
                 priority
+                className="object-contain"
               />
             </div>
           </Link>

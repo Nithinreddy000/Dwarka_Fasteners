@@ -5,6 +5,7 @@ import { TopBar } from '@/components/layout/TopBar';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { EnquiryButton } from '@/components/ui/EnquiryButton';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -64,6 +65,8 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <EnquiryButton />
+        <Analytics />
       </body>
     </html>
   );
