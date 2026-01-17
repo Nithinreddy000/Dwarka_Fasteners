@@ -21,18 +21,13 @@ export function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-12 h-12">
+            <div className="relative w-20 h-20">
               <Image
                 src="/logo.png"
                 alt="Dwarka Fasteners"
                 fill
-                className="object-contain"
                 priority
               />
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-2xl font-bold text-accent-600">DWARKA</span>
-              <span className="block text-xs text-primary-600 font-semibold tracking-widest -mt-1">FASTENERS</span>
             </div>
           </Link>
 
