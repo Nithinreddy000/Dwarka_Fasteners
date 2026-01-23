@@ -111,30 +111,32 @@ export function IndustriesSection() {
         </div>
 
         {/* Industries Grid - 9 items in 3x3 grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="group relative bg-steel-800/50 backdrop-blur-sm rounded-2xl p-6 border border-steel-700/50 hover:border-accent-500/50 transition-all duration-500 overflow-hidden hover:-translate-y-1"
+              className="group relative bg-steel-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-steel-700/50 hover:border-accent-500/50 transition-all duration-500 overflow-hidden hover:-translate-y-1"
             >
               {/* Background Gradient on Hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${industry.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
               
               {/* Content */}
-              <div className="relative z-10 flex items-start gap-4">
+              <div className="relative z-10 flex flex-row items-start gap-3 sm:gap-4">
                 {/* Icon */}
-                <div className={`w-14 h-14 flex-shrink-0 rounded-xl bg-gradient-to-br ${industry.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  {industry.icon}
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-xl bg-gradient-to-br ${industry.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+                    {industry.icon}
+                  </div>
                 </div>
 
-                <div>
+                <div className="min-w-0">
                   {/* Name */}
-                  <h3 className="text-lg font-bold text-white group-hover:text-accent-400 transition-colors duration-300 mb-1">
+                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-accent-400 transition-colors duration-300 mb-1 leading-tight">
                     {industry.name}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-steel-400 group-hover:text-steel-300 transition-colors duration-300">
+                  <p className="text-xs sm:text-sm text-steel-400 group-hover:text-steel-300 transition-colors duration-300 leading-relaxed">
                     {industry.description}
                   </p>
                 </div>

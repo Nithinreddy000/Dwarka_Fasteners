@@ -67,9 +67,12 @@ export function Header() {
           <a 
             href="#home" 
             onClick={(e) => scrollToSection(e, '#home')}
-            className="flex items-center gap-4 py-2"
+            className="flex items-center gap-2 lg:gap-4 py-2 shrink-0"
           >
-            <div className="relative" style={{ width: '12rem', height: '12rem' ,marginTop:'2rem',marginLeft:'-10rem'}}>
+            <div 
+              className="relative" 
+              style={{ width: '12rem', height: '12rem', marginTop: '2rem', marginLeft: '-3rem' }}
+            >
               <Image
                 src="/logo.png"
                 alt="Dwarka Fasteners"
@@ -78,11 +81,11 @@ export function Header() {
                 className="object-contain"
               />
             </div>
-            <div className="hidden sm:block" style={{marginLeft:'-3rem'}}>
-              <h1 className="text-xl lg:text-2xl font-bold text-white tracking-wide">
+            <div className="hidden xl:block">
+              <h1 className="text-lg xl:text-2xl font-bold text-white tracking-wide">
                 DWARKA FASTENERS
               </h1>
-              <p className="text-xs lg:text-sm text-steel-300 tracking-wider">
+              <p className="text-xs xl:text-sm text-steel-300 tracking-wider">
                 Manufacturers of SS Fasteners
               </p>
             </div>
@@ -97,7 +100,7 @@ export function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className={`px-5 py-2.5 font-medium text-sm tracking-wide transition-all rounded-full ${
+                  className={`px-3 lg:px-4 xl:px-5 py-2 font-medium text-sm tracking-wide transition-all rounded-full ${
                     isActive
                       ? 'bg-accent-500 text-white shadow-lg shadow-accent-500/30'
                       : 'text-steel-200 hover:text-white hover:bg-steel-700/50'
@@ -110,10 +113,10 @@ export function Header() {
           </div>
 
           {/* Contact Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
             {/* WhatsApp */}
             <a
-              href="https://wa.me/919058935670"
+              href="https://wa.me/919849108501"
               className="w-11 h-11 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-400 hover:scale-110 transition-all shadow-lg shadow-green-500/30"
               aria-label="WhatsApp"
               target="_blank"
@@ -173,7 +176,7 @@ export function Header() {
               })}
               <div className="pt-3 mt-2 border-t border-steel-700/50 flex gap-2 px-2">
                 <a
-                  href="https://wa.me/919058935670"
+                  href="https://wa.me/919849108501"
                   className="flex-1 py-3 bg-green-500 text-white text-center font-semibold text-sm rounded-xl hover:bg-green-400 transition-all"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -181,7 +184,7 @@ export function Header() {
                   WhatsApp
                 </a>
                 <a
-                  href="tel:+919058935670"
+                  href="tel:+919849108501"
                   className="flex-1 py-3 bg-steel-700 text-white text-center font-semibold text-sm rounded-xl hover:bg-steel-600 transition-all"
                 >
                   Call Now

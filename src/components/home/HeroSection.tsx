@@ -39,24 +39,24 @@ export function HeroSection() {
               <span className="text-white/80 text-sm font-medium tracking-wider">SINCE 1994</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
               <span className="text-white">A Complete Range</span>
               <br />
               <span className="text-white">of </span>
               <span className="text-gradient">Fasteners</span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-steel-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-steel-300 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed px-2 sm:px-0">
               Precision-engineered bolts, nuts, screws & washers. Trusted by industries across India for over 30 years.
             </p>
 
             {/* Material Type Tabs */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 mb-8 sm:mb-10">
               {materials.map((material) => (
                 <button
                   key={material.id}
                   onClick={() => setActiveMaterial(material.id)}
-                  className={`group relative px-6 py-3 rounded-lg font-semibold text-sm tracking-wide transition-all duration-300 ${
+                  className={`group relative px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-xs sm:text-sm tracking-wide transition-all duration-300 ${
                     activeMaterial === material.id
                       ? 'bg-accent-500 text-white shadow-glow-orange'
                       : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white border border-white/10'
@@ -64,7 +64,7 @@ export function HeroSection() {
                 >
                   <span>{material.name}</span>
                   {activeMaterial === material.id && (
-                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs text-steel-300 whitespace-nowrap">
+                    <span className="absolute -bottom-6 sm:-bottom-8 left-1/2 -translate-x-1/2 text-[10px] sm:text-xs text-steel-300 whitespace-nowrap">
                       {material.description}
                     </span>
                   )}
@@ -73,10 +73,10 @@ export function HeroSection() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-12">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mt-10 sm:mt-12 px-2 sm:px-0">
               <Link
-                href="/products"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 text-white font-semibold uppercase tracking-wide rounded-lg hover:bg-accent-600 transition-all duration-300 shadow-lg hover:shadow-glow-orange btn-shine"
+                href="#products"
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-accent-500 text-white font-semibold uppercase tracking-wide text-sm sm:text-base rounded-lg hover:bg-accent-600 transition-all duration-300 shadow-lg hover:shadow-glow-orange btn-shine"
               >
                 <span>Explore Products</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,8 +84,8 @@ export function HeroSection() {
                 </svg>
               </Link>
               <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold uppercase tracking-wide rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-white font-semibold uppercase tracking-wide text-sm sm:text-base rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
