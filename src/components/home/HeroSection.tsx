@@ -146,10 +146,6 @@ export function HeroSection() {
                   <div className="text-3xl font-bold text-accent-500">30+</div>
                   <div className="text-xs text-steel-300 uppercase tracking-wider">Years</div>
                 </div>
-                <div className="glass-dark rounded-xl px-6 py-4 text-center">
-                  <div className="text-3xl font-bold text-accent-500">12+</div>
-                  <div className="text-xs text-steel-300 uppercase tracking-wider">Countries</div>
-                </div>
               </div>
             </div>
           </div>
@@ -159,10 +155,6 @@ export function HeroSection() {
             <div className="glass-dark rounded-xl px-5 py-3 text-center">
               <div className="text-2xl font-bold text-accent-500">30+</div>
               <div className="text-xs text-steel-300 uppercase tracking-wider">Years</div>
-            </div>
-            <div className="glass-dark rounded-xl px-5 py-3 text-center">
-              <div className="text-2xl font-bold text-accent-500">12+</div>
-              <div className="text-xs text-steel-300 uppercase tracking-wider">Countries</div>
             </div>
           </div>
         </div>
