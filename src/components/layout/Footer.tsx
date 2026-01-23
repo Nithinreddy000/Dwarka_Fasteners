@@ -41,7 +41,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-steel-400 text-sm leading-relaxed mb-6">
-              Premium quality industrial fasteners since 1994. Trusted by 2000+ clients across 12+ countries.
+              Premium quality industrial fasteners since 1994.
             </p>
             {/* Social Icons */}
             <div className="flex gap-3">

@@ -1,17 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-
-const materials = [
-  { id: 'ms', name: 'MS', fullName: 'Mild Steel', description: 'Cost-effective & versatile' },
-  { id: 'ss', name: 'SS', fullName: 'Stainless Steel', description: 'Corrosion resistant' },
-  { id: 'galvanized', name: 'Hot-dip Galvanized', fullName: 'Hot-dip Galvanized', description: 'Maximum durability' },
-];
 
 export function HeroSection() {
-  const [activeMaterial, setActiveMaterial] = useState('ss');
-
   return (
     <section className="relative min-h-[90vh] bg-steel-gradient overflow-hidden">
       {/* Background Pattern */}
@@ -29,7 +20,7 @@ export function HeroSection() {
         }}></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[70vh]">
           {/* Content */}
           <div className="text-center lg:text-left animate-fade-in">
@@ -50,26 +41,13 @@ export function HeroSection() {
               Precision-engineered bolts, nuts, screws & washers. Trusted by industries across India for over 30 years.
             </p>
 
-            {/* Material Type Tabs */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 mb-8 sm:mb-10">
-              {materials.map((material) => (
-                <button
-                  key={material.id}
-                  onClick={() => setActiveMaterial(material.id)}
-                  className={`group relative px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-xs sm:text-sm tracking-wide transition-all duration-300 ${
-                    activeMaterial === material.id
-                      ? 'bg-accent-500 text-white shadow-glow-orange'
-                      : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white border border-white/10'
-                  }`}
-                >
-                  <span>{material.name}</span>
-                  {activeMaterial === material.id && (
-                    <span className="absolute -bottom-6 sm:-bottom-8 left-1/2 -translate-x-1/2 text-[10px] sm:text-xs text-steel-300 whitespace-nowrap">
-                      {material.description}
-                    </span>
-                  )}
-                </button>
-              ))}
+            {/* Material Types - Plain Text */}
+            <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-8 sm:mb-10 text-steel-300">
+              <span className="text-sm sm:text-base font-medium">MS</span>
+              <span className="text-steel-500">|</span>
+              <span className="text-sm sm:text-base font-medium">SS</span>
+              <span className="text-steel-500">|</span>
+              <span className="text-sm sm:text-base font-medium">Hot-dip Galvanized</span>
             </div>
 
             {/* CTA Buttons */}
@@ -169,10 +147,6 @@ export function HeroSection() {
                   <div className="text-xs text-steel-300 uppercase tracking-wider">Years</div>
                 </div>
                 <div className="glass-dark rounded-xl px-6 py-4 text-center">
-                  <div className="text-3xl font-bold text-accent-500">2000+</div>
-                  <div className="text-xs text-steel-300 uppercase tracking-wider">Clients</div>
-                </div>
-                <div className="glass-dark rounded-xl px-6 py-4 text-center">
                   <div className="text-3xl font-bold text-accent-500">12+</div>
                   <div className="text-xs text-steel-300 uppercase tracking-wider">Countries</div>
                 </div>
@@ -185,10 +159,6 @@ export function HeroSection() {
             <div className="glass-dark rounded-xl px-5 py-3 text-center">
               <div className="text-2xl font-bold text-accent-500">30+</div>
               <div className="text-xs text-steel-300 uppercase tracking-wider">Years</div>
-            </div>
-            <div className="glass-dark rounded-xl px-5 py-3 text-center">
-              <div className="text-2xl font-bold text-accent-500">2000+</div>
-              <div className="text-xs text-steel-300 uppercase tracking-wider">Clients</div>
             </div>
             <div className="glass-dark rounded-xl px-5 py-3 text-center">
               <div className="text-2xl font-bold text-accent-500">12+</div>

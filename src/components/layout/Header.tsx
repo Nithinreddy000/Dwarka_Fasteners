@@ -2,76 +2,108 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 
 const navigation = [
-  { name: 'Home', href: '#home' },
-  { name: 'Products', href: '#products' },
-  { name: 'Industries', href: '#industries' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/', section: 'home' },
+  { name: 'Products', href: '/products', section: 'products' },
+  { name: 'Industries', href: '/#industries', section: 'industries' },
+  { name: 'About Us', href: '/#about', section: 'about' },
+  { name: 'Contact', href: '/#contact', section: 'contact' },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
+    // If on products page, set products as active
+    if (pathname === '/products') {
+      setActiveSection('products');
+      return;
+    }
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
       
-      // Detect active section
-      const sections = navigation.map(nav => nav.href.replace('#', ''));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100) {
-            setActiveSection(section);
-            break;
+      // Only detect active section on home page
+      if (isHomePage) {
+        const sections = ['contact', 'about', 'industries', 'products', 'home'];
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
       }
     };
     
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHomePage, pathname]);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: typeof navigation[0]) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
     setIsMenuOpen(false);
+
+    // If clicking Home, go to home page
+    if (item.section === 'home') {
+      if (isHomePage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        router.push('/');
+      }
+      return;
+    }
+
+    // If clicking Products, go to products page
+    if (item.section === 'products') {
+      router.push('/products');
+      return;
+    }
+
+    // For other sections (Industries, About, Contact)
+    if (isHomePage) {
+      // On home page, scroll to section
+      const element = document.getElementById(item.section);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    } else {
+      // On other pages, navigate to home with hash
+      router.push(`/#${item.section}`);
+    }
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-steel-900 ${
       scrolled 
-        ? 'bg-steel-900/95 backdrop-blur-lg shadow-xl border-b border-steel-700/50' 
-        : 'bg-transparent'
+        ? 'shadow-xl border-b border-steel-700/50' 
+        : ''
     }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo + Company Name */}
           <a 
-            href="#home" 
-            onClick={(e) => scrollToSection(e, '#home')}
+            href="/" 
+            onClick={(e) => handleNavClick(e, navigation[0])}
             className="flex items-center gap-2 lg:gap-4 py-2 shrink-0"
           >
             <div 
               className="relative" 
-              style={{ width: '12rem', height: '12rem', marginTop: '2rem', marginLeft: '-3rem' }}
+              style={{ width: '12rem', height: '12rem', marginTop: '0.95rem', marginLeft: '-3rem' }}
             >
               <Image
                 src="/logo.png"
@@ -94,12 +126,12 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1 bg-steel-800/50 backdrop-blur-sm rounded-full px-2 py-1 border border-steel-700/30">
             {navigation.map((item) => {
-              const isActive = activeSection === item.href.replace('#', '');
+              const isActive = activeSection === item.section;
               return (
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item)}
                   className={`px-3 lg:px-4 xl:px-5 py-2 font-medium text-sm tracking-wide transition-all rounded-full ${
                     isActive
                       ? 'bg-accent-500 text-white shadow-lg shadow-accent-500/30'
@@ -128,8 +160,8 @@ export function Header() {
             </a>
             {/* Get Quote Button */}
             <a
-              href="#contact"
-              onClick={(e) => scrollToSection(e, '#contact')}
+              href="/#contact"
+              onClick={(e) => handleNavClick(e, navigation[4])}
               className="px-6 py-2.5 bg-accent-500 text-white font-semibold text-sm rounded-full hover:bg-accent-400 transition-all shadow-lg shadow-accent-500/30 hover:shadow-xl hover:shadow-accent-500/40 hover:scale-105"
             >
               Get Quote
@@ -158,12 +190,12 @@ export function Header() {
           <div className="lg:hidden py-4 bg-steel-800/95 backdrop-blur-lg rounded-2xl mt-2 border border-steel-700/50 animate-fade-in">
             <div className="flex flex-col gap-1 px-2">
               {navigation.map((item) => {
-                const isActive = activeSection === item.href.replace('#', '');
+                const isActive = activeSection === item.section;
                 return (
                   <a
                     key={item.name}
                     href={item.href}
-                    onClick={(e) => scrollToSection(e, item.href)}
+                    onClick={(e) => handleNavClick(e, item)}
                     className={`block px-4 py-3 font-medium text-sm tracking-wide rounded-xl transition-all ${
                       isActive
                         ? 'bg-accent-500 text-white'
