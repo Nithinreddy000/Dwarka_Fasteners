@@ -7,8 +7,8 @@ import { usePathname, useRouter } from 'next/navigation';
 const navigation = [
   { name: 'Home', href: '/', section: 'home' },
   { name: 'Products', href: '/products', section: 'products' },
-  { name: 'Industries', href: '/#industries', section: 'industries' },
   { name: 'About Us', href: '/#about', section: 'about' },
+  { name: 'Industries', href: '/#industries', section: 'industries' },
   { name: 'Contact', href: '/#contact', section: 'contact' },
 ];
 
@@ -32,7 +32,7 @@ export function Header() {
       
       // Only detect active section on home page
       if (isHomePage) {
-        const sections = ['contact', 'about', 'industries', 'products', 'home'];
+        const sections = ['contact', 'industries', 'about', 'products', 'home'];
         for (const section of sections) {
           const element = document.getElementById(section);
           if (element) {

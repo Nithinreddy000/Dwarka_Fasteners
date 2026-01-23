@@ -7,14 +7,9 @@ const certifications = [
     subtitle: 'Quality Management',
   },
   {
-    name: 'ISO',
-    number: '14001',
-    subtitle: 'Environmental',
-  },
-  {
-    name: 'CE',
+    name: 'MSME',
     number: '',
-    subtitle: 'Certified',
+    subtitle: 'Registered',
   },
   {
     name: 'RoHS',

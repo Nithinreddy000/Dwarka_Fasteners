@@ -188,15 +188,8 @@ export default function ProductsPage() {
                   key={index}
                   className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
                 >
-                  {/* Image Area with DIN Badge */}
+                  {/* Image Area */}
                   <div className="relative aspect-square bg-gradient-to-br from-gray-100 to-gray-200 p-3 lg:p-6">
-                    {/* DIN Badge */}
-                    {product.din !== '-' && (
-                      <div className="absolute top-2 left-2 lg:top-3 lg:left-3 bg-gray-600 text-white text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:px-3 lg:py-1 rounded">
-                        {product.din}
-                      </div>
-                    )}
-
                     {/* Placeholder Icon */}
                     <div className="w-full h-full flex items-center justify-center">
                       <svg
@@ -213,13 +206,6 @@ export default function ProductsPage() {
                         />
                       </svg>
                     </div>
-                  </div>
-
-                  {/* Product Name Footer */}
-                  <div className="bg-steel-700 py-2 px-2 lg:py-4 lg:px-4">
-                    <h3 className="text-white text-center font-semibold uppercase text-[10px] lg:text-sm tracking-wide leading-tight">
-                      {product.name}
-                    </h3>
                   </div>
                 </div>
               ))}
