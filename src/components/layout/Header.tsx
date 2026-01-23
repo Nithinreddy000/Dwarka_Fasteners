@@ -88,18 +88,18 @@ export function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-steel-900 overflow-hidden ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-steel-900 ${
       scrolled 
         ? 'shadow-xl border-b border-steel-700/50' 
         : ''
-    }`} style={{ height: '5rem' }}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
-        <div className="flex justify-between items-center h-20">
+    }`}>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20 overflow-visible">
           {/* Logo + Company Name */}
           <a 
             href="/" 
             onClick={(e) => handleNavClick(e, navigation[0])}
-            className="flex items-center gap-2 lg:gap-4 py-2 shrink-0 relative z-50 pointer-events-auto"
+            className="flex items-center gap-2 lg:gap-4 py-2 shrink-0 relative z-50"
             style={{ maxHeight: '5rem' }}
           >
             <div 
@@ -188,7 +188,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 bg-steel-800/95 backdrop-blur-lg rounded-2xl mt-2 border border-steel-700/50 animate-fade-in">
+          <div className="lg:hidden absolute left-4 right-4 top-20 py-4 bg-steel-800/95 backdrop-blur-lg rounded-2xl border border-steel-700/50 animate-fade-in z-50 shadow-xl">
             <div className="flex flex-col gap-1 px-2">
               {navigation.map((item) => {
                 const isActive = activeSection === item.section;

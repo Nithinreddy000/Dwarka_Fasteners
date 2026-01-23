@@ -86,10 +86,32 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left Sidebar - Category Buttons */}
-          <div className="lg:w-72 flex-shrink-0">
-            <div className="flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 lg:sticky lg:top-24">
+        {/* Category Tabs - Simple horizontal on mobile */}
+        <div className="flex flex-wrap gap-2 mb-6 lg:hidden">
+          {categories.map((category) => (
+            <button
+              type="button"
+              key={category.id}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setActiveCategory(category.id);
+              }}
+              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide transition-all ${
+                activeCategory === category.id
+                  ? 'bg-accent-500 text-white'
+                  : 'bg-steel-800 text-white'
+              }`}
+            >
+              {category.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+          {/* Left Sidebar - Category Buttons (Desktop only) */}
+          <div className="hidden lg:block lg:w-72 flex-shrink-0">
+            <div className="flex flex-col gap-3 sticky top-24">
               {categories.map((category) => (
                 <button
                   type="button"
@@ -99,19 +121,19 @@ export default function ProductsPage() {
                     e.stopPropagation();
                     setActiveCategory(category.id);
                   }}
-                  className={`flex items-center justify-between gap-4 px-5 py-3 rounded-full font-bold uppercase tracking-wide transition-all duration-300 whitespace-nowrap min-w-fit ${
+                  className={`flex items-center justify-between gap-4 px-5 py-3 rounded-full font-bold uppercase tracking-wide transition-all duration-300 ${
                     activeCategory === category.id
                       ? 'bg-accent-500 text-white'
                       : 'bg-steel-800 text-white hover:bg-steel-700'
                   }`}
                 >
                   <span className="text-sm">{category.name}</span>
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 p-1.5">
+                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 p-1.5">
                     <Image
                       src={category.icon}
                       alt={category.name}
-                      width={28}
-                      height={28}
+                      width={32}
+                      height={32}
                       className="object-contain"
                     />
                   </div>
@@ -123,35 +145,35 @@ export default function ProductsPage() {
           {/* Right Content Area */}
           <div className="flex-1 min-w-0">
             {/* Category Title */}
-            <h1 className="text-3xl sm:text-4xl font-bold text-steel-800 mb-6">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-steel-800 mb-4 lg:mb-6">
               {currentCategory.name}
             </h1>
 
             {/* Specs Table */}
-            <div className="mb-8 overflow-x-auto">
-              <table className="w-full">
+            <div className="mb-6 lg:mb-8 overflow-x-auto">
+              <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-steel-700 text-white">
-                    <th className="px-4 py-3 text-left font-semibold uppercase tracking-wide text-sm">
+                    <th className="px-3 py-2 lg:px-4 lg:py-3 text-left font-semibold uppercase tracking-wide text-xs lg:text-sm">
                       Grade
                     </th>
-                    <th className="px-4 py-3 text-left font-semibold uppercase tracking-wide text-sm">
+                    <th className="px-3 py-2 lg:px-4 lg:py-3 text-left font-semibold uppercase tracking-wide text-xs lg:text-sm">
                       Range
                     </th>
-                    <th className="px-4 py-3 text-left font-semibold uppercase tracking-wide text-sm">
+                    <th className="px-3 py-2 lg:px-4 lg:py-3 text-left font-semibold uppercase tracking-wide text-xs lg:text-sm">
                       Length
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-gray-100">
-                    <td className="px-4 py-3 text-steel-700 font-medium">
+                    <td className="px-3 py-2 lg:px-4 lg:py-3 text-steel-700 font-medium text-xs lg:text-sm">
                       {currentCategory.specs.grade}
                     </td>
-                    <td className="px-4 py-3 text-steel-700">
+                    <td className="px-3 py-2 lg:px-4 lg:py-3 text-steel-700 text-xs lg:text-sm">
                       {currentCategory.specs.range}
                     </td>
-                    <td className="px-4 py-3 text-steel-700">
+                    <td className="px-3 py-2 lg:px-4 lg:py-3 text-steel-700 text-xs lg:text-sm">
                       {currentCategory.specs.length}
                     </td>
                   </tr>
@@ -160,17 +182,17 @@ export default function ProductsPage() {
             </div>
 
             {/* Product Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
               {currentCategory.products.map((product, index) => (
                 <div
                   key={index}
                   className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
                 >
                   {/* Image Area with DIN Badge */}
-                  <div className="relative aspect-square bg-gradient-to-br from-gray-100 to-gray-200 p-6">
+                  <div className="relative aspect-square bg-gradient-to-br from-gray-100 to-gray-200 p-3 lg:p-6">
                     {/* DIN Badge */}
                     {product.din !== '-' && (
-                      <div className="absolute top-3 left-3 bg-gray-600 text-white text-xs font-bold px-3 py-1 rounded">
+                      <div className="absolute top-2 left-2 lg:top-3 lg:left-3 bg-gray-600 text-white text-[10px] lg:text-xs font-bold px-2 py-0.5 lg:px-3 lg:py-1 rounded">
                         {product.din}
                       </div>
                     )}
@@ -178,7 +200,7 @@ export default function ProductsPage() {
                     {/* Placeholder Icon */}
                     <div className="w-full h-full flex items-center justify-center">
                       <svg
-                        className="w-24 h-24 text-gray-400"
+                        className="w-12 h-12 lg:w-24 lg:h-24 text-gray-400"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -194,8 +216,8 @@ export default function ProductsPage() {
                   </div>
 
                   {/* Product Name Footer */}
-                  <div className="bg-steel-700 py-4 px-4">
-                    <h3 className="text-white text-center font-semibold uppercase text-sm tracking-wide leading-tight">
+                  <div className="bg-steel-700 py-2 px-2 lg:py-4 lg:px-4">
+                    <h3 className="text-white text-center font-semibold uppercase text-[10px] lg:text-sm tracking-wide leading-tight">
                       {product.name}
                     </h3>
                   </div>
