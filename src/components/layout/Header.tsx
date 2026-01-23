@@ -88,21 +88,22 @@ export function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-steel-900 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-steel-900 overflow-hidden ${
       scrolled 
         ? 'shadow-xl border-b border-steel-700/50' 
         : ''
-    }`}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    }`} style={{ height: '5rem' }}>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
         <div className="flex justify-between items-center h-20">
           {/* Logo + Company Name */}
           <a 
             href="/" 
             onClick={(e) => handleNavClick(e, navigation[0])}
-            className="flex items-center gap-2 lg:gap-4 py-2 shrink-0"
+            className="flex items-center gap-2 lg:gap-4 py-2 shrink-0 relative z-50 pointer-events-auto"
+            style={{ maxHeight: '5rem' }}
           >
             <div 
-              className="relative" 
+              className="relative pointer-events-none" 
               style={{ width: '12rem', height: '12rem', marginTop: '0.95rem', marginLeft: '-3rem' }}
             >
               <Image
@@ -110,7 +111,7 @@ export function Header() {
                 alt="Dwarka Fasteners"
                 fill
                 priority
-                className="object-contain"
+                className="object-contain pointer-events-none"
               />
             </div>
             <div className="hidden xl:block">

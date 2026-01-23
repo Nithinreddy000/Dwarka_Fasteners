@@ -1,16 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const categories = [
   {
     id: 'bolts',
     name: 'BOLTS',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-      </svg>
-    ),
+    icon: '/bolt.png',
     specs: {
       grade: 'SS 304 & 316',
       range: 'M3 to M36 | 1/8" to 1.5" INCHES',
@@ -28,12 +25,7 @@ const categories = [
   {
     id: 'nuts',
     name: 'NUTS',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
+    icon: '/nut.png',
     specs: {
       grade: 'SS 304 & 316',
       range: 'M3 to M36 | 1/8" to 1.5" INCHES',
@@ -51,11 +43,7 @@ const categories = [
   {
     id: 'screws',
     name: 'SCREWS',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-      </svg>
-    ),
+    icon: '/joint.png',
     specs: {
       grade: 'SS 304 & 316',
       range: 'M2 to M20 | 1/16" to 3/4" INCHES',
@@ -73,12 +61,7 @@ const categories = [
   {
     id: 'washers',
     name: 'WASHERS',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="8" strokeWidth={1.5} />
-        <circle cx="12" cy="12" r="4" strokeWidth={1.5} />
-      </svg>
-    ),
+    icon: '/washer.png',
     specs: {
       grade: 'SS 304 & 316',
       range: 'DIAMETER M2 to M30 | 1/8" to 1" INCHES',
@@ -109,8 +92,13 @@ export default function ProductsPage() {
             <div className="flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 lg:sticky lg:top-24">
               {categories.map((category) => (
                 <button
+                  type="button"
                   key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setActiveCategory(category.id);
+                  }}
                   className={`flex items-center justify-between gap-4 px-5 py-3 rounded-full font-bold uppercase tracking-wide transition-all duration-300 whitespace-nowrap min-w-fit ${
                     activeCategory === category.id
                       ? 'bg-accent-500 text-white'
@@ -118,8 +106,14 @@ export default function ProductsPage() {
                   }`}
                 >
                   <span className="text-sm">{category.name}</span>
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-steel-800 flex-shrink-0">
-                    {category.icon}
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 p-1.5">
+                    <Image
+                      src={category.icon}
+                      alt={category.name}
+                      width={28}
+                      height={28}
+                      className="object-contain"
+                    />
                   </div>
                 </button>
               ))}
