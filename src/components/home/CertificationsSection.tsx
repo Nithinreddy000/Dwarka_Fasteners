@@ -1,20 +1,22 @@
 'use client';
 
+import Image from 'next/image';
+
 const certifications = [
   {
     name: 'ISO',
-    number: '9001',
     subtitle: 'Quality Management',
+    image: '/images/iso_logo.png',
   },
   {
     name: 'MSME',
-    number: '',
     subtitle: 'Registered',
+    image: '/images/msme_logo.png',
   },
   {
     name: 'RoHS',
-    number: '',
     subtitle: 'Compliant',
+    image: '/images/rohs_logo.png',
   },
 ];
 
@@ -30,23 +32,19 @@ export function CertificationsSection() {
         </div>
 
         {/* Certifications Row */}
-        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 lg:gap-16">
+        <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 lg:gap-20">
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center group"
+              className="flex items-center justify-center"
             >
-              {/* Certification Badge */}
-              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gray-50 rounded-xl border-2 border-gray-200 flex flex-col items-center justify-center mb-2 group-hover:border-accent-500/50 transition-all duration-300">
-                <span className="text-lg sm:text-xl font-bold text-steel-800">{cert.name}</span>
-                {cert.number && (
-                  <span className="text-sm sm:text-base font-semibold text-accent-500">{cert.number}</span>
-                )}
-              </div>
-              {/* Subtitle */}
-              <span className="text-xs sm:text-sm font-medium text-steel-600">
-                {cert.subtitle}
-              </span>
+              <Image
+                src={cert.image}
+                alt={cert.name}
+                width={100}
+                height={60}
+                className="object-contain h-14 sm:h-16 lg:h-20"
+              />
             </div>
           ))}
         </div>

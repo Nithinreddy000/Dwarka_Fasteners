@@ -135,8 +135,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-secondary-900">Address</h3>
                     <p className="text-secondary-600">
-                      Sector 12, Dwarka<br />
-                      New Delhi - 110075<br />
+                      A-7, CIE, Balanagar<br />
+                      Hyderabad - 500037<br />
                       India
                     </p>
                   </div>
@@ -149,8 +149,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-secondary-900">Phone</h3>
-                    <p className="text-secondary-600">+91 123 456 7890</p>
-                    <p className="text-secondary-600">+91 987 654 3210</p>
+                    <p className="text-secondary-600">+91 91212 85022</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -161,8 +160,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-secondary-900">Email</h3>
-                    <p className="text-secondary-600">info@dwarkafasteners.com</p>
-                    <p className="text-secondary-600">sales@dwarkafasteners.com</p>
+                    <p className="text-secondary-600">dilip.dwarkafasteners@gmail.com</p>
                   </div>
                 </div>
               </div>

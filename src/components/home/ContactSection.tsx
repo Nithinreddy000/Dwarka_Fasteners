@@ -19,10 +19,10 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 relative overflow-hidden">
+    <section className="py-20 bg-gray-50 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-mesh-pattern opacity-20"></div>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 bg-mesh-pattern opacity-10"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent-500/[0.02] rounded-full blur-3xl"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-12">
@@ -35,14 +35,14 @@ export function ContactSection() {
               Let&apos;s Start <span className="text-accent-500">Building Together</span>
             </h2>
             <p className="text-steel-600 mb-8 leading-relaxed">
-              Partner with us for precision, quality, and reliability. Reach out 
+              Partner with us for precision, quality, and reliability. Reach out
               and let&apos;s discuss your fastening requirements.
             </p>
 
             {/* Address with Map */}
             <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-              <a 
-                href="https://www.google.com/maps/search/?api=1&query=A-7+CIE+Balanagar+Hyderabad+500037"
+              <a
+                href="https://maps.app.goo.gl/o11LtnqiMPVU1XGs6?g_st=iw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-5 hover:bg-gray-50 transition-colors"
@@ -64,7 +64,7 @@ export function ContactSection() {
               {/* Google Maps Embed */}
               <div className="h-48 bg-gray-100">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.4398736661783!2d78.44373!3d17.464167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb918d9e8bce3b%3A0x7c99b0c0e7c9e2f3!2sCIE%2C%20Balanagar%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1706012345678!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.4398736661783!2d78.4537!3d17.4641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90f6998f444d%3A0xca171be3f1419bfe!2sDWARKA%20FASTENERS!5e0!3m2!1sen!2sin!4v1706012345678!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -81,7 +81,7 @@ export function ContactSection() {
           <div className="lg:col-span-3">
             <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
               <h3 className="text-xl font-bold text-steel-800 mb-6">Send us a message</h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -157,7 +157,7 @@ export function ContactSection() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-accent-500 text-white font-semibold uppercase tracking-wide rounded-lg hover:bg-accent-600 transition-all duration-300 shadow-lg hover:shadow-glow-orange btn-shine"
+                  className="w-full py-4 bg-accent-500 text-white font-semibold uppercase tracking-wide rounded-lg hover:bg-accent-600 transition-all duration-300 shadow-lg hover:shadow-glow-red btn-shine"
                 >
                   Send Message
                 </button>

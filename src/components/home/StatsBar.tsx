@@ -24,7 +24,7 @@ export function StatsBar() {
         <div className="flex flex-col md:flex-row justify-start items-start md:items-center gap-6 md:gap-12">
           {stats.map((stat, index) => (
             <div key={index} className="flex items-center gap-3">
-              <div className="text-primary-600">{stat.icon}</div>
+              <div className="text-accent-500">{stat.icon}</div>
               <span className="text-accent-600 font-semibold">{stat.text}</span>
               {index < stats.length - 1 && (
                 <div className="hidden md:block w-px h-6 bg-secondary-200 ml-6"></div>

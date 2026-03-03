@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Roboto_Condensed } from 'next/font/google';
 import './globals.css';
+import { TopBar } from '@/components/layout/TopBar';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { EnquiryButton } from '@/components/ui/EnquiryButton';
@@ -10,6 +11,13 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto-condensed',
+  weight: ['700'],
 });
 
 export const metadata: Metadata = {
@@ -58,8 +66,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${robotoCondensed.variable}`}>
       <body className="min-h-screen flex flex-col font-sans scroll-smooth">
+        <TopBar />
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

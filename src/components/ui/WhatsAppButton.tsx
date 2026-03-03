@@ -30,7 +30,7 @@ export function WhatsAppButton() {
 
   return (
     <div 
-      className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ${
+      className={`fixed bottom-6 right-6 z-50 transition-all duration-500 lg:hidden ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
       }`}
     >
@@ -48,7 +48,7 @@ export function WhatsAppButton() {
 
       {/* Button */}
       <a
-        href="https://wa.me/919058935670?text=Hi%2C%20I%27m%20interested%20in%20your%20fasteners.%20Please%20share%20more%20details."
+        href="https://wa.me/919121285022?text=Hi%2C%20I%27m%20interested%20in%20your%20fasteners.%20Please%20share%20more%20details."
         target="_blank"
         rel="noopener noreferrer"
         className="group flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 animate-bounce-slow"

@@ -62,14 +62,14 @@ export function FeaturesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary-600 font-semibold text-sm uppercase tracking-wider">
+          <span className="text-accent-500 font-semibold text-sm uppercase tracking-wider">
             Why Choose Us
           </span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-secondary-900">
             Built on Trust & Quality
           </h2>
           <p className="mt-4 text-lg text-secondary-600 max-w-2xl mx-auto">
-            For over 30 years, we have been providing the highest quality fasteners 
+            For over 30 years, we have been providing the highest quality fasteners
             to industries across India.
           </p>
         </div>
@@ -81,7 +81,7 @@ export function FeaturesSection() {
               key={index}
               className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-secondary-100"
             >
-              <div className="w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-accent-50 text-accent-500 rounded-lg flex items-center justify-center mb-4">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold text-secondary-900 mb-2">

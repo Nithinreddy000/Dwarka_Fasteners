@@ -1,245 +1,161 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
-const categories = [
+const filters = [
   {
-    id: 'bolts',
-    name: 'BOLTS',
-    icon: '/bolt.png',
-    specs: {
-      grade: 'SS 304 & 316',
-      range: 'M3 to M36 | 1/8" to 1.5" INCHES',
-      length: 'UPTO 500MM | UPTO 20" INCHES',
-    },
+    id: 'bolts-screws',
+    name: 'Bolts & Screws',
     products: [
-      { name: 'Hex Head Bolt', din: 'DIN 933' },
-      { name: 'Hex Head Bolt Half Thread', din: 'DIN 931' },
-      { name: 'Carriage Bolt', din: 'DIN 603' },
-      { name: 'Foundation Bolt', din: 'IS 5624' },
-      { name: 'Flange Bolt', din: 'DIN 6921' },
-      { name: 'Eye Bolt', din: 'DIN 580' },
+      { name: 'Foundation Bolt', image: '/productimages/FOUNDATION%20Bolt.png' },
+      { name: 'Carriage Bolt', image: '/productimages/Carriage%20Bolt.png' },
+      { name: 'Self Drilling Screw', image: '/productimages/selfdrillingscrews.png' },
+      { name: 'Hex Bolt', image: '/productimages/hexbolt.png' },
+      { name: 'Socket Screw', image: '/productimages/socketscrew.png' },
+      { name: 'Pan Phillips CSK Screw', image: '/productimages/panphilipscskscrew.png' },
+      { name: 'Sheet Metal Screw', image: '/productimages/Steelmetalscrew.png' },
+      { name: 'Flange Bolt', image: '/productimages/flangebolt.png' },
+      { name: 'Truss Head Screw', image: '/productimages/TrussHeadScrew.png' },
     ],
   },
   {
-    id: 'nuts',
-    name: 'NUTS',
-    icon: '/nut.png',
-    specs: {
-      grade: 'SS 304 & 316',
-      range: 'M3 to M36 | 1/8" to 1.5" INCHES',
-      length: '-',
-    },
+    id: 'nuts-washers',
+    name: 'Nuts & Washers',
     products: [
-      { name: 'Hex Nut', din: 'DIN 934' },
-      { name: 'Nylock Nut', din: 'DIN 985' },
-      { name: 'Flange Nut', din: 'DIN 6923' },
-      { name: 'Wing Nut', din: 'DIN 315' },
-      { name: 'Dome Nut / Cap Nut', din: 'DIN 1587' },
-      { name: 'Coupling Nut', din: 'DIN 6334' },
+      { name: 'Wing Nut', image: '/productimages/WING%20NUT.png' },
+      { name: 'Hex Nut', image: '/productimages/HEX%20NUT.png' },
+      { name: 'Nylock Nut', image: '/productimages/NYLOCK%20NUT.png' },
+      { name: 'Flange Nut', image: '/productimages/FLANGE%20NUT.png' },
+      { name: 'Insert Nut', image: '/productimages/INSERT%20NUT.png' },
+      { name: 'Square Nut', image: '/productimages/squarenut.png' },
+      { name: 'Square Weld Nut', image: '/productimages/SQUARE%20WELD%20NUT.png' },
+      { name: 'Spring Washer', image: '/productimages/SPRING%20WASHER.png' },
+      { name: 'Plain Washer', image: '/productimages/PLAIN%20WASHER.png' },
     ],
   },
   {
-    id: 'screws',
-    name: 'SCREWS',
-    icon: '/joint.png',
-    specs: {
-      grade: 'SS 304 & 316',
-      range: 'M2 to M20 | 1/16" to 3/4" INCHES',
-      length: 'UPTO 150MM | UPTO 6" INCHES',
-    },
+    id: 'anchors-others',
+    name: 'Anchors & Others',
     products: [
-      { name: 'Socket Head Allen Cap Screw', din: 'DIN 912' },
-      { name: 'CSK Phillips Head Screw', din: 'DIN 965' },
-      { name: 'Pan Head Phillips Screw', din: 'DIN 7985' },
-      { name: 'Self Tapping Screw', din: 'DIN 7981' },
-      { name: 'Self Drilling Screw', din: 'DIN 7504' },
-      { name: 'Set Screw / Grub Screw', din: 'DIN 913' },
-    ],
-  },
-  {
-    id: 'washers',
-    name: 'WASHERS',
-    icon: '/washer.png',
-    specs: {
-      grade: 'SS 304 & 316',
-      range: 'DIAMETER M2 to M30 | 1/8" to 1" INCHES',
-      length: 'UPTO 300MM | UPTO 12" INCHES',
-    },
-    products: [
-      { name: 'Plain Washer', din: 'DIN 125' },
-      { name: 'Spring Lock Washer', din: 'DIN 127' },
-      { name: 'P.B. Spring Washer', din: 'DIN 128' },
-      { name: 'Star Washer', din: 'DIN 6797' },
-      { name: 'Belleville Washer', din: 'DIN 6796' },
-      { name: 'Fender Washer', din: '-' },
+      { name: 'Wedge Anchor', image: '/productimages/WEDGE%20ANCHOR.png' },
+      { name: 'Pop Rivets', image: '/productimages/POP%20RIVETS.png' },
+      { name: 'Hollow Rivet', image: '/productimages/HOLLOW%20RIVET.png' },
+      { name: 'SS 304 Fasteners', image: '/productimages/SS%20304%20Fasteners.png' },
+      { name: 'SS 202 Fasteners', image: '/productimages/SS%20202%20Fasteners.png' },
+      { name: 'Hot Dip Galvanised Set', image: '/productimages/HOT%20DIP%20GALVANISED%20FASTENERS%20SET.png' },
+      { name: 'Button Head Screw', image: '/productimages/buttonheadscrew.png' },
+      { name: 'Metal Edge Protector', image: '/productimages/metaledgeprotector.png' },
     ],
   },
 ];
 
 export default function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState('bolts');
+  const [activeFilter, setActiveFilter] = useState('bolts-screws');
 
-  const currentCategory = categories.find((c) => c.id === activeCategory)!;
+  const currentFilter = filters.find((f) => f.id === activeFilter)!;
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12">
+    <div className="min-h-screen bg-gray-50 pt-28 sm:pt-36 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Category Tabs - Simple horizontal on mobile */}
-        <div className="flex flex-wrap gap-2 mb-6 lg:hidden">
-          {categories.map((category) => (
+        {/* Page Title */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-steel-900">
+            Our <span className="text-accent-500 italic">Products</span>
+          </h1>
+          <p className="mt-2 text-steel-600 text-sm sm:text-base">
+            Precision-engineered fasteners for every industry
+          </p>
+        </div>
+
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          {filters.map((filter) => (
             <button
-              type="button"
-              key={category.id}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setActiveCategory(category.id);
-              }}
-              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide transition-all ${
-                activeCategory === category.id
-                  ? 'bg-accent-500 text-white'
-                  : 'bg-steel-800 text-white'
+              key={filter.id}
+              onClick={() => setActiveFilter(filter.id)}
+              className={`px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wide transition-all duration-300 ${
+                activeFilter === filter.id
+                  ? 'bg-accent-500 text-white shadow-lg shadow-accent-500/25'
+                  : 'bg-steel-800 text-white hover:bg-steel-700'
               }`}
             >
-              {category.name}
+              {filter.name}
             </button>
           ))}
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-          {/* Left Sidebar - Category Buttons (Desktop only) */}
-          <div className="hidden lg:block lg:w-72 flex-shrink-0">
-            <div className="flex flex-col gap-3 sticky top-24">
-              {categories.map((category) => (
-                <button
-                  type="button"
-                  key={category.id}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setActiveCategory(category.id);
-                  }}
-                  className={`flex items-center justify-between gap-4 px-5 py-3 rounded-full font-bold uppercase tracking-wide transition-all duration-300 ${
-                    activeCategory === category.id
-                      ? 'bg-accent-500 text-white'
-                      : 'bg-steel-800 text-white hover:bg-steel-700'
-                  }`}
-                >
-                  <span className="text-sm">{category.name}</span>
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 p-1.5">
-                    <Image
-                      src={category.icon}
-                      alt={category.name}
-                      width={32}
-                      height={32}
-                      className="object-contain"
-                    />
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Content Area */}
-          <div className="flex-1 min-w-0">
-            {/* Category Title */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-steel-800 mb-4 lg:mb-6">
-              {currentCategory.name}
-            </h1>
-
-            {/* Specs Table */}
-            <div className="mb-6 lg:mb-8 overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-steel-700 text-white">
-                    <th className="px-3 py-2 lg:px-4 lg:py-3 text-left font-semibold uppercase tracking-wide text-xs lg:text-sm">
-                      Grade
-                    </th>
-                    <th className="px-3 py-2 lg:px-4 lg:py-3 text-left font-semibold uppercase tracking-wide text-xs lg:text-sm">
-                      Range
-                    </th>
-                    <th className="px-3 py-2 lg:px-4 lg:py-3 text-left font-semibold uppercase tracking-wide text-xs lg:text-sm">
-                      Length
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="bg-gray-100">
-                    <td className="px-3 py-2 lg:px-4 lg:py-3 text-steel-700 font-medium text-xs lg:text-sm">
-                      {currentCategory.specs.grade}
-                    </td>
-                    <td className="px-3 py-2 lg:px-4 lg:py-3 text-steel-700 text-xs lg:text-sm">
-                      {currentCategory.specs.range}
-                    </td>
-                    <td className="px-3 py-2 lg:px-4 lg:py-3 text-steel-700 text-xs lg:text-sm">
-                      {currentCategory.specs.length}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* Product Cards Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
-              {currentCategory.products.map((product, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
-                >
-                  {/* Image Area */}
-                  <div className="relative aspect-square bg-gradient-to-br from-gray-100 to-gray-200 p-3 lg:p-6">
-                    {/* Placeholder Icon */}
-                    <div className="w-full h-full flex items-center justify-center">
-                      <svg
-                        className="w-12 h-12 lg:w-24 lg:h-24 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Contact CTA */}
-            <div className="mt-12 text-center bg-white rounded-xl p-8 shadow-md border border-gray-100">
-              <h3 className="text-xl font-bold text-steel-800 mb-2">
-                Need Custom Specifications?
-              </h3>
-              <p className="text-steel-600 mb-4">
-                Contact us for custom sizes, grades, and bulk orders.
-              </p>
-              <a
-                href="/#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent-500 text-white font-semibold uppercase text-sm tracking-wide rounded-full hover:bg-accent-400 transition-all duration-300"
-              >
-                Get Quote
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+        {/* Products Grid - 4 cols desktop, 2 cols mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+          {currentFilter.products.map((product, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+            >
+              {/* Image Area */}
+              <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 p-4 sm:p-6 flex items-center justify-center overflow-hidden">
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
                   />
-                </svg>
-              </a>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <svg
+                      className="w-16 h-16 sm:w-20 sm:h-20 text-gray-300 group-hover:text-gray-400 transition-colors"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1}
+                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                      />
+                    </svg>
+                  </div>
+                )}
+              </div>
+
+              {/* Product Name */}
+              <div className="px-3 py-3 sm:px-4 sm:py-4 bg-white border-t border-gray-100">
+                <h3 className="text-xs sm:text-sm font-semibold text-steel-800 text-center leading-tight">
+                  {product.name}
+                </h3>
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+
+        {/* Contact CTA */}
+        <div className="mt-12 text-center bg-white rounded-xl p-8 shadow-md border border-gray-100">
+          <h3 className="text-xl font-bold text-steel-800 mb-2">
+            Need Custom Specifications?
+          </h3>
+          <p className="text-steel-600 mb-4">
+            Contact us for custom sizes, grades, and bulk orders.
+          </p>
+          <a
+            href="/#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-accent-500 text-white font-semibold uppercase text-sm tracking-wide rounded-full hover:bg-accent-400 transition-all duration-300"
+          >
+            Get Quote
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </div>

@@ -12,19 +12,17 @@ export default function Home() {
       <section id="home">
         <HeroSection />
       </section>
-      <section id="products">
-        <ProductsSection />
-      </section>
       <section id="about">
         <WhyChooseUsSection />
+      </section>
+      <section id="products">
+        <ProductsSection />
       </section>
       <section id="industries">
         <IndustriesSection />
       </section>
       <CertificationsSection />
-      <section id="contact">
-        <ContactSection />
-      </section>
+      <ContactSection />
       <WhatsAppButton />
     </>
   );

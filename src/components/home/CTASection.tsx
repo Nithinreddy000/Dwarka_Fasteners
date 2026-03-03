@@ -2,20 +2,20 @@ import Link from 'next/link';
 
 export function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
+    <section className="py-20 bg-gradient-to-r from-accent-500 to-accent-700 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Ready to Get Started?
           </h2>
-          <p className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto">
-            Contact us today for a free quote. Our team is ready to help you find 
+          <p className="text-lg text-accent-100 mb-8 max-w-2xl mx-auto">
+            Contact us today for a free quote. Our team is ready to help you find
             the perfect fasteners for your project.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="px-8 py-4 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors shadow-lg"
+              className="px-8 py-4 bg-white text-accent-600 font-semibold rounded-lg hover:bg-accent-50 transition-colors shadow-lg"
             >
               Request Quote
             </Link>
@@ -48,7 +48,7 @@ export function CTASection() {
                   />
                 </svg>
               </div>
-              <p className="text-primary-100 text-sm">Email</p>
+              <p className="text-accent-100 text-sm">Email</p>
               <p className="font-medium">info@dwarkafasteners.com</p>
             </div>
             <div>
@@ -62,7 +62,7 @@ export function CTASection() {
                   />
                 </svg>
               </div>
-              <p className="text-primary-100 text-sm">Phone</p>
+              <p className="text-accent-100 text-sm">Phone</p>
               <p className="font-medium">+91 123 456 7890</p>
             </div>
             <div>
@@ -82,7 +82,7 @@ export function CTASection() {
                   />
                 </svg>
               </div>
-              <p className="text-primary-100 text-sm">Location</p>
+              <p className="text-accent-100 text-sm">Location</p>
               <p className="font-medium">Dwarka, New Delhi</p>
             </div>
           </div>
