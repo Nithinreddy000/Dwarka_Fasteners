@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   keywords: ['stainless steel fasteners', 'bolts', 'nuts', 'screws', 'washers', 'industrial fasteners', 'manufacturer India', 'Dwarka'],
   authors: [{ name: 'Dwarka Fasteners' }],
   creator: 'Dwarka Fasteners',
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_IN',

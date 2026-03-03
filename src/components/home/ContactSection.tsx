@@ -55,7 +55,7 @@ export function ContactSection() {
                 </div>
                 <div className="flex-1">
                   <p className="text-steel-500 text-sm font-medium mb-1">Address</p>
-                  <p className="text-steel-800 font-semibold">A-7, CIE, Balanagar, Hyderabad-37</p>
+                  <p className="text-steel-800 font-semibold">A-7, CIE, Balanagar, Hyderabad, Telangana - 500037</p>
                 </div>
                 <svg className="w-5 h-5 text-steel-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

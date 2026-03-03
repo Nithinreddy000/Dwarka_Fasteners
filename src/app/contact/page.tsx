@@ -136,7 +136,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-secondary-900">Address</h3>
                     <p className="text-secondary-600">
                       A-7, CIE, Balanagar<br />
-                      Hyderabad - 500037<br />
+                      Hyderabad, Telangana - 500037<br />
                       India
                     </p>
                   </div>

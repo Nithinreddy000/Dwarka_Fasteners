@@ -10,13 +10,13 @@ const navigation = [
 ];
 
 const products = [
-  { name: 'Bolts', href: '#products' },
-  { name: 'Nuts', href: '#products' },
-  { name: 'Screws', href: '#products' },
-  { name: 'Washers', href: '#products' },
-  { name: 'Pop Rivets', href: '#products' },
-  { name: 'SS 304 Fasteners', href: '#products' },
-  { name: 'Hot Dip Galvanized', href: '#products' },
+  { name: 'BOLTS', href: '#products' },
+  { name: 'NUTS', href: '#products' },
+  { name: 'SCREWS', href: '#products' },
+  { name: 'WASHERS', href: '#products' },
+  { name: 'POP RIVETS', href: '#products' },
+  { name: 'SS 304 FASTENERS', href: '#products' },
+  { name: 'HOT DIP GALVANIZED', href: '#products' },
 ];
 
 export function Footer() {
@@ -88,7 +88,7 @@ export function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-steel-500 text-sm">A-7, CIE, Balanagar,<br />Hyderabad-37</span>
+                <span className="text-steel-500 text-sm">A-7, CIE, Balanagar,<br />Hyderabad, Telangana - 500037</span>
               </li>
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

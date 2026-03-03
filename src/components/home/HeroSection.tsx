@@ -83,8 +83,8 @@ export function HeroSection() {
         {/* ===== DESKTOP LAYOUT (lg and above) ===== */}
         <div className="hidden lg:block relative">
           {/* Big centered logo — absolutely positioned so it doesn't push content down */}
-          <div className="absolute left-1/2 -translate-x-1/2 -top-16 z-10">
-            <div className="relative w-64 h-64 xl:w-72 xl:h-72 2xl:w-80 2xl:h-80">
+          <div className="absolute left-1/2 -translate-x-1/2 -top-20 z-10">
+            <div className="relative w-80 h-80 xl:w-96 xl:h-96 2xl:w-[28rem] 2xl:h-[28rem]">
               <Image
                 src="/logo.png"
                 alt="Dwarka Fasteners"

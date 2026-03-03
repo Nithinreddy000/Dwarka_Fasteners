@@ -129,7 +129,7 @@ export function Header() {
                 <span className="text-accent-500">DWARKA</span> <span className="text-steel-900">FASTENERS</span>
               </h1>
               <p className="text-xs xl:text-sm text-steel-500 tracking-wider">
-                Fastening Trust
+                Fastening Growth
               </p>
             </div>
           </a>

@@ -35,7 +35,7 @@ const filters = [
   },
   {
     id: 'anchors-others',
-    name: 'Anchors & Others',
+    name: 'Rivets & Others',
     products: [
       { name: 'Wedge Anchor', image: '/productimages/WEDGE%20ANCHOR.png' },
       { name: 'Pop Rivets', image: '/productimages/POP%20RIVETS.png' },
