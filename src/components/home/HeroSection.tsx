@@ -26,8 +26,8 @@ export function HeroSection() {
         {/* ===== MOBILE / TABLET LAYOUT (below lg) ===== */}
         <div className="lg:hidden relative flex flex-col items-center">
           {/* Logo - Big and centered, absolutely positioned so it doesn't push content */}
-          <div className="absolute left-1/2 -translate-x-1/2 -top-10 sm:-top-14 md:-top-16 z-10">
-            <div className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-60 md:h-60">
+          <div className="absolute left-1/2 -translate-x-1/2 -top-20 sm:-top-14 md:-top-16 z-10">
+            <div className="relative w-72 h-72 sm:w-52 sm:h-52 md:w-60 md:h-60">
               <Image
                 src="/logo.png"
                 alt="Dwarka Fasteners"
@@ -39,7 +39,7 @@ export function HeroSection() {
           </div>
 
           {/* Text Content — pt to clear the absolutely positioned logo */}
-          <div className="text-center animate-fade-in pt-32 sm:pt-36 md:pt-44">
+          <div className="text-center animate-fade-in pt-48 sm:pt-36 md:pt-44">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-50 border border-accent-200 mb-4">
               <div className="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></div>
               <span className="text-accent-600 text-sm font-medium tracking-wider">SINCE 1994</span>
